@@ -4,15 +4,27 @@ Automatically assign an increasing sequence number to file names.
 
 ## Installation
 
-```
+```shell
 $ python -m pip install numfile
+```
+
+## Development
+
+```shell
+$ git clone git@github.com:bzaczynski/numfile.git
+$ pyenv local 3.9.0
+$ python -m venv .venv --prompt=numfile
+$ source .venv/bin/activate
+$ pip install -U pip flit
+$ flit install --deps=all --symlink
+$ python -m pytest
 ```
 
 ## Use Cases
 
 Write data to numbered snapshot files in a given directory:
 
-```
+```shell
 $ python -q
 >>> from numfile import open_next
 >>> for version in ("first", "second", "third"):
@@ -28,7 +40,7 @@ $ ls -d /tmp/* | grep snapshot
 
 Append messages to the latest log file:
 
-```
+```shell
 $ ls -tr | grep app-error
 app-error.log
 app-error-2.log
@@ -48,7 +60,7 @@ Oops... Something went wrong!
 
 Consolidate similar files in chronological order:
 
-```
+```shell
 $ python -q
 >>> from numfile import open_all
 >>> for file in open_all("/tmp/snapshot.txt"): 

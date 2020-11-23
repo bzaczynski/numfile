@@ -184,46 +184,53 @@ def fake_files(mocker: MockerFixture) -> None:
         Path,
         "iterdir",
         return_value=[
+
             # Unrelated files
-            "__init__.py",
-            "main.py",
-            "utils.py",
+            Path("/path/to/__init__.py"),
+            Path("/path/to/main.py"),
+            Path("/path/to/utils.py"),
+
             # Same name but different suffixes
-            "foo",
-            "foo.md",
-            "foo.txt",
-            "foo.txt.tar.gz",
+            Path("/path/to/foo"),
+            Path("/path/to/foo.md"),
+            Path("/path/to/foo.txt"),
+            Path("/path/to/foo.txt.tar.gz"),
+
             # Name prefix shared with other files
-            "foobar",
-            "foobar.md",
-            "foobar.txt",
-            "foobar.txt.tar.gz",
+            Path("/path/to/foobar"),
+            Path("/path/to/foobar.md"),
+            Path("/path/to/foobar.txt"),
+            Path("/path/to/foobar.txt.tar.gz"),
+
             # Plain with numbers
-            "file-1",
-            "file-2",
-            "file-3",
-            "file-4",
+            Path("/path/to/file-1"),
+            Path("/path/to/file-2"),
+            Path("/path/to/file-3"),
+            Path("/path/to/file-4"),
+
             # Plain starting with no number
-            "lorem",
-            "lorem-2",
-            "lorem-3",
+            Path("/path/to/lorem"),
+            Path("/path/to/lorem-2"),
+            Path("/path/to/lorem-3"),
+
             # Gaps
-            "ipsum-3",
-            "ipsum-8",
-            "ipsum-9",
-            "ipsum-12",
+            Path("/path/to/ipsum-3"),
+            Path("/path/to/ipsum-8"),
+            Path("/path/to/ipsum-9"),
+            Path("/path/to/ipsum-12"),
+
             # Numbers
-            "foo-1",
-            "foo-2",
-            "foo-1.md",
-            "foo-2.md",
-            "foo-3.md",
-            "foo-1.txt",
-            "foo-2.txt",
-            "foo-3.txt",
-            "foo-4.txt",
-            "foo-1.txt.tar.gz",
-            "foo-2.txt.tar.gz",
+            Path("/path/to/foo-1"),
+            Path("/path/to/foo-2"),
+            Path("/path/to/foo-1.md"),
+            Path("/path/to/foo-2.md"),
+            Path("/path/to/foo-3.md"),
+            Path("/path/to/foo-1.txt"),
+            Path("/path/to/foo-2.txt"),
+            Path("/path/to/foo-3.txt"),
+            Path("/path/to/foo-4.txt"),
+            Path("/path/to/foo-1.txt.tar.gz"),
+            Path("/path/to/foo-2.txt.tar.gz"),
         ],
     )
 
