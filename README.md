@@ -8,18 +8,6 @@ Automatically assign an increasing sequence number to file names.
 $ python -m pip install numfile
 ```
 
-## Development
-
-```shell
-$ git clone git@github.com:bzaczynski/numfile.git
-$ pyenv local 3.9.0
-$ python -m venv .venv --prompt=numfile
-$ source .venv/bin/activate
-$ pip install -U pip flit
-$ flit install --deps=all --symlink
-$ python -m pytest
-```
-
 ## Use Cases
 
 Write data to numbered snapshot files in a given directory:
@@ -69,4 +57,26 @@ $ python -q
 /tmp/snapshot-1.txt The first version.
 /tmp/snapshot-2.txt The second version.
 /tmp/snapshot-3.txt The third version.
+```
+
+## Development
+
+```shell
+$ git clone git@github.com:bzaczynski/numfile.git
+$ cd numfile
+$ pyenv local 3.9.0
+$ python -m venv .venv --prompt=numfile
+$ source .venv/bin/activate
+$ pip install -U pip flit
+$ flit install --deps=all --symlink
+$ python -m pytest
+```
+
+## Releasing
+
+Bump the version:
+
+```shell
+$ bump2version minor
+$ git status
 ```
