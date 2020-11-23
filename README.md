@@ -74,9 +74,48 @@ $ python -m pytest
 
 ## Releasing
 
-Bump the version:
+### Test
+
+Make sure there are no uncommitted or untracked files, and then bump the version:
 
 ```shell
 $ bump2version minor
 $ git status
+$ git commit -am "Bumped version"
+```
+
+Build a new binary package:
+
+```shell
+$ rm -rf dist
+$ flit build
+```
+
+Publish the binaries to the official PyPI server:
+
+```shell
+$ flit publish
+```
+
+To use the [Test PyPI](https://test.pypi.org/) server, create a file `~/.pypirc` with your username:
+
+```
+[distutils]
+index-servers =
+   pypi
+   testpypi
+
+[pypi]
+repository = https://upload.pypi.org/legacy/
+username = your-username
+
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = your-username
+```
+
+Then, supply the test server using the `--repository` flag:
+
+```shell
+$ flit publish --repository testpypi
 ```
